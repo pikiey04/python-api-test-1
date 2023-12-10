@@ -29,6 +29,8 @@
 
 from flask import Flask, jsonify
 import requests
+from waitress import serve
+
 
 app = Flask(__name__)
 
@@ -42,5 +44,5 @@ def autocomplete(query):
     return jsonify(suggestions)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(app, host="0.0.0.0", port=8080)
 
